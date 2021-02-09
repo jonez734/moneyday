@@ -1,0 +1,12 @@
+{extends file="page.tmpl"}
+{block name="content"}
+{if count($data.calendars) > 0}
+<ul>
+{foreach $data.calendars as $calendar}
+<li>{include file="calendar.tmpl" calendar=$calendar}</li>
+{/foreach}
+</ul>
+{else}
+<b>No Calendars</b>
+{/if}
+{/block}

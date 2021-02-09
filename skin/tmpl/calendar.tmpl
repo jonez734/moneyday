@@ -1,0 +1,33 @@
+<div class="calContainer">
+{$monthweekdaystext = $calendar["monthweekdaystext"]}
+{$moneydaytext = $calendar["moneydaytext"]}
+{$monthweekdays = $calendar["monthweekdays"]}
+{$moneyday = $calendar["moneyday"]}
+{$daystillnext = $calendar["daystillnext"]}
+{$datetime = $calendar["datetime"]}
+<div class="blurb">
+<div class="header">
+ <h1>{$datetime->format("F")} {$datetime->format("Y")} {if $daystillnext > 0} - {$daystillnext} days till next{/if}</h1>
+</div> {* header *}
+<div class="body">
+<table class="calendar" cellspacing="0" cellpadding="0">
+<tr>{foreach $monthweekdaystext->orderedWeekdays('short') as $name}<th>{$name}</th>{/foreach}</tr>
+ {foreach $monthweekdays->fetchAll() as $day}
+  {if ($day->isFirst())}<tr>{/if}
+  <td class="calCell{if ($day->isSelected())} calCellBusy{/if}{if ($day->isEmpty())} calCellEmpty{/if}">
+  {if ($day->isEmpty())}
+   &nbsp;
+  {else if $day->isSelected()}
+   <div class="dayNumber busy">{$day->thisDay()}</div>
+   <div class="dayContents">&nbsp;</div>
+  {else}
+   <div class="dayNumber free">{$day->thisDay()}</div>
+   <div class="dayContents">&nbsp;</div>
+  {/if}
+  </td>
+  {if $day->isLast()}</tr>{/if}
+ {/foreach}
+</table>
+</div> {* body *}
+</div> {* blurb *}
+</div>
