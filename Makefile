@@ -69,4 +69,8 @@ prod:
 	#$(installfile) google067c1cb56376e896.html $(DOCROOT)google067c1cb56376e896.html
 	$(RSYNC) $(STAGE) $(PROD)
 
+push:
+	git push -u github main
+
+
 .PHONY: prod dev
