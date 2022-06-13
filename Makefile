@@ -30,10 +30,10 @@ all:
 
 clean:
 	-rm *~
-	$(MAKE) -C skin clean
-	$(MAKE) -C php clean
-	$(MAKE) -C smarty clean
-	$(MAKE) -C js clean
+	-$(MAKE) -C skin clean
+	-$(MAKE) -C php clean
+	-$(MAKE) -C smarty clean
+	-$(MAKE) -C js clean
 
 dev:	export DOCROOT = $(STAGEDEVDOCROOT)
 dev:	export STAGE = $(STAGEDEV)
