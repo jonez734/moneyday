@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 
-#from distutils.core import setup
 from setuptools import setup
 
 import time
 
 v = time.strftime("%Y%m%d%H%M")
-projectname = "letteredolive"
+projectname = "moneyday"
 
 setup(
   name=projectname,
@@ -14,10 +13,10 @@ setup(
   author="zoidtechnologies.com",
   author_email="%s@projects.zoidtechnologies.com" % (projectname),
   license="GPLv3",
-  scripts=["../bin/bbs"],
+  scripts=["../bin/moneyday"],
   requires=["ttyio5", "bbsengine5"],
-  packages=["letteredolive"],
-  url="http://bbsengine.org/",
+  packages=["moneyday"],
+  url="https://projects.zoidtechnologies.com/%s/" % (projectname),
   classifiers=[
     "Programming Language :: Python :: 3.10",
     "Environment :: Console",
